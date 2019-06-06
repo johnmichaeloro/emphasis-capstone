@@ -25,8 +25,11 @@ class PatternContainer extends Component {
         publication: '',
         year: '',
         url: '',
-        patternType: null,
-        description: '',
+        patternType: {
+          name: 'null',
+          description: ''
+        },
+        patternDetails: null,
         text: [{
           text: '',
           analysis: null,

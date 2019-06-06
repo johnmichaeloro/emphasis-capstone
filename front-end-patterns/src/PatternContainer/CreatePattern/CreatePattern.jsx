@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-//Bug in the description input field that creates a series of commas. Probably due to the descriptionMapper not returning anything when the component mounts. To fix it I either need to refine the descriptionMapper or filter out the commas.
-
 class CreatePattern extends Component {
   constructor(props){
     super(props);
@@ -11,7 +9,11 @@ class CreatePattern extends Component {
       publication: '',
       year: '',
       url: '',
-      patternType: null,
+      patternType: {
+        name: '',
+        description: ''
+      },
+      patternDetails: null,
       description: '',
       text: [{
         text: '',
@@ -28,26 +30,21 @@ class CreatePattern extends Component {
   }
 
   typeMapper = this.props.patternTypes.map((patternType) => {
+    console.log('this is mapped patternType in create', patternType);
     return(
-      <option key={patternType._id} name='patternType' value={patternType._id}>{patternType.patternType}</option>
+      <option key={patternType._id} name='patternDetails' value={patternType._id}>{patternType.patternType}</option>
     )
   })
 
   render(){
-    // const descriptionMapper = this.props.patternTypes.map((patternType) => {
-    //   if(patternType._id === this.state.patternType){
-    //     return patternType.description;
-    //   }
-    // })
 
     let descriptionMapper;
     this.props.patternTypes.forEach((patternType) => {
-      if(patternType._id === this.state.patternType){
+      if(patternType._id === this.state.patternDetails){
         descriptionMapper = patternType.description;
       }
     })
 
-    console.log(descriptionMapper, 'this is descriptionMapper');
     return(
       <div>
         <form onSubmit={this.props.addPattern.bind(null, this.state)}>
@@ -73,11 +70,11 @@ class CreatePattern extends Component {
           </label>
           <br/>
           <label>
-            Pattern Type: <select name='patternType' onChange={this.updatePattern}>{this.typeMapper}</select>
+            Pattern Type: <select name='patternType.name' onChange={this.updatePattern}>{this.typeMapper}</select>
           </label>
           <br/>
           <label>
-              Description: <input name='description' onChange={this.updatePattern} value={descriptionMapper} />
+              Description: <input name='patternType.description' onChange={this.updatePattern} value={descriptionMapper} />
           </label>
           <br/>
           <label>

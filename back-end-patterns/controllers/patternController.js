@@ -24,6 +24,7 @@ router.post('/', async (req, res) => {
     const createdPattern = await Pattern.create(req.body);
     const populatedPattern = await Pattern.findById(createdPattern).populate('patternType').populate('user');
     console.log("this is the created pattern " + createdPattern);
+    console.log('this is the populated pattern ' + populatedPattern);
     res.json({
       status: 200,
       data: createdPattern

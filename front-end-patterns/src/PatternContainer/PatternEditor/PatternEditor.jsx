@@ -4,28 +4,15 @@ const PatternEditor = (props) => {
   console.log('this is patternToEdit', props.patternToEdit);
   console.log('this is props.patternToEdit.text in PatternEditor', props.patternToEdit.text);
 
-  // const typeMapper = props.patternTypes.map((patternType) => {
-  //   console.log(patternType)
-  //   if(patternType.description === props.patternToEdit.patternType.description){
-  //     return(
-  //       <select name='patternType' onChange={props.handleFormChange}>{props.patternTypes.map((patternType) => {
-  //         return(
-  //           <option key={patternType._id} name='patternType' value={patternType._id}>{patternType.patternType}</option>
-  //         )
-  //       })}</select>
-  //     )
-  //   }
-  // })
-
   const typeMapper = props.patternTypes.map((patternType) => {
-    if(patternType.description !== props.patternToEdit.patternType.description){
+    if(patternType.patternType.description !== props.patternToEdit.patternType.description){
           return(
-            <option key={patternType._id} name='patternType' value={patternType._id}>{patternType.patternType}</option>
+            <option key={patternType._id} name='patternType.name' value={patternType._id}>{patternType.patternType.name}</option>
           );
         }
         });
 
-  typeMapper.unshift(<option key={props.patternToEdit.patternType._id} name='patternType' value={props.patternToEdit.patternType._id}>{props.patternToEdit.patternType.patternType}</option>);
+  typeMapper.unshift(<option key={props.patternToEdit.patternDetails._id} name='patternDetails' value={props.patternToEdit.patternDetails._id}>{props.patternToEdit.patternType.name}</option>);
 
 
   return(
@@ -53,11 +40,11 @@ const PatternEditor = (props) => {
         </label>
         <br/>
         <label>
-        Edit Pattern Type: <select name='patternType' onChange={props.handleFormChange}>{typeMapper}</select>
+        Edit Pattern Type: <select name='patternType.name' onChange={props.handleFormChange}>{typeMapper}</select>
         </label>
         <br/>
         <label>
-          Edit Description: <input name='description' onChange={props.handleFormChange} value={props.patternToEdit.patternType.description} />
+          Edit Description: <input name='patternType.description' onChange={props.handleFormChange} value={props.patternToEdit.patternType.description} />
         </label>
         <br/>
         <label>

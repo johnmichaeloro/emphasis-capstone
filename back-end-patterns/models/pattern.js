@@ -15,6 +15,10 @@ const patternSchema = new Schema({
   year: {type: Number, required: true},
   url: String,
   patternType: {
+    name: {type: String, required: true},
+    description: {type: String, required: true}
+  },
+  patternDetails: {
     type: Schema.Types.ObjectId,
     ref: 'PatternType'
   },

@@ -42,7 +42,7 @@ const PatternList = (props) => {
         <span>Publication:{pattern.publication}</span><br/>
         <span>Year:{pattern.year}</span><br/>
         <span>URL:{pattern.url}</span><br/>
-        <span>Pattern Type:{pattern.patternType.patternType}</span><br/>
+        <span>Pattern Type:{pattern.patternType.name}</span><br/>
         <span>Description:{pattern.patternType.description}</span><br/>
         <span>Text:{sentenceColorer}</span><br/>
         <span>Commentary:{pattern.commentary}</span><br/>
