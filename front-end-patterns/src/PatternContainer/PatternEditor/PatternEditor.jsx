@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PatternEditor = (props) => {
-  console.log('this is patternToEdit', props.patternToEdit);
   console.log('this is props.patternToEdit.text in PatternEditor', props.patternToEdit.text);
 
   const typeMapper = props.patternTypes.map((patternType) => {
@@ -32,7 +31,7 @@ const PatternEditor = (props) => {
         </label>
         <br/>
         <label>
-          Edit Year: <input type='number' name='year' onChange={props.handleFormChange} value={props.patternToEdit.year} />
+          Edit Year: <input type='text' name='year' onChange={props.handleFormChange} value={props.patternToEdit.year} />
         </label>
         <br/>
         <label>
@@ -40,11 +39,19 @@ const PatternEditor = (props) => {
         </label>
         <br/>
         <label>
+<<<<<<< HEAD
         Edit Pattern Type: <select name='patternType.name' onChange={props.handleFormChange}>{typeMapper}</select>
         </label>
         <br/>
         <label>
           Edit Description: <input name='patternType.description' onChange={props.handleFormChange} value={props.patternToEdit.patternType.description} />
+=======
+          Edit Pattern Type: <select name='patternType' value={props.patternToEdit.patternType}></select>
+        </label>
+        <br/>
+        <label>
+          Edit Description: <input name='description' onChange={props.handleFormChange} value={props.patternToEdit.description} />
+>>>>>>> parent of 2a37138... fixed map issues on forms
         </label>
         <br/>
         <label>
