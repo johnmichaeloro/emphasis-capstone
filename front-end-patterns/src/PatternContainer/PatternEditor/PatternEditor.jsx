@@ -40,17 +40,23 @@ const PatternEditor = (props) => {
         <br/>
         <label>
 <<<<<<< HEAD
+<<<<<<< HEAD
         Edit Pattern Type: <select name='patternType.name' onChange={props.handleFormChange}>{typeMapper}</select>
         </label>
         <br/>
         <label>
           Edit Description: <input name='patternType.description' onChange={props.handleFormChange} value={props.patternToEdit.patternType.description} />
 =======
+=======
+>>>>>>> parent of 2a37138... fixed map issues on forms
           Edit Pattern Type: <select name='patternType' value={props.patternToEdit.patternType}></select>
         </label>
         <br/>
         <label>
           Edit Description: <input name='description' onChange={props.handleFormChange} value={props.patternToEdit.description} />
+<<<<<<< HEAD
+>>>>>>> parent of 2a37138... fixed map issues on forms
+=======
 >>>>>>> parent of 2a37138... fixed map issues on forms
         </label>
         <br/>
